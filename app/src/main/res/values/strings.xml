@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">NotePad</string>
+
+    <string name="label_note_title">Note title:</string>
+    <string name="label_note_description">Description:</string>
+    <string name="create_button">Create</string>
+    <string name="button_delete">Delete</string>
+    <string name="button_save">Save</string>
+
+</resources>
