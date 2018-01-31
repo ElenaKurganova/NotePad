@@ -1,7 +1,8 @@
 package com.elena.kurganova.notepad;
 
 /**
- * Created by Elena on 28-Jan-18.
+ * @author Elena Kurganova
+ * @version 1.0
  */
 
 class ServerActivity {

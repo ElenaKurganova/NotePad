@@ -1,5 +1,10 @@
 package com.elena.kurganova.notepad;
 
+/**
+ * @author Elena Kurganova
+ * @version 1.0
+ */
+
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -36,7 +41,9 @@ public class CreateActivity extends AppCompatActivity implements View.OnClickLis
         buttonCreate.setOnClickListener(this);
     }
 
-    //Adding a note
+     /**
+     * Method to add a note
+     */
     private void addNote() {
         final String title = editTextName.getText().toString().trim();
         final String description = editTextDescription.getText().toString().trim();
@@ -78,7 +85,12 @@ public class CreateActivity extends AppCompatActivity implements View.OnClickLis
         ae.execute();
     }
 
-    //Create note method, adds note to the list
+    //
+
+    /**
+     * Method to run creation of a new note, adds note to the list
+     * @param v
+     */
     @Override
     public void onClick(View v) {
         if (v == buttonCreate) {

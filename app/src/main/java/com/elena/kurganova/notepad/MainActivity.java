@@ -1,5 +1,10 @@
 package com.elena.kurganova.notepad;
 
+/**
+ * @author Elena Kurganova
+ * @version 1.0
+ */
+
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -20,6 +25,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity implements ListView.OnItemClickListener {
+
     //Defining views
     private ListView listView;
     private String JSON_STRING;
@@ -34,6 +40,9 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
         getJSON();
     }
 
+    /**
+     * Method to display a note
+     */
     private void showNote() {
         JSONArray json;
         ArrayList<HashMap<String, String>> list = new ArrayList<>();
@@ -62,6 +71,9 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
         listView.setAdapter(adapter);
     }
 
+    /**
+     * Method to get JSON
+     */
     private void getJSON() {
         class GetJSON extends AsyncTask<Void, Void, String> {
             ProgressDialog loading;
@@ -90,6 +102,14 @@ public class MainActivity extends AppCompatActivity implements ListView.OnItemCl
         gj.execute();
     }
 
+    /**
+     * Method to identify the note clicked and get its data
+     *
+     * @param adapter
+     * @param view
+     * @param position
+     * @param id
+     */
     @Override
     public void onItemClick(AdapterView<?> adapter, View view, int position, long id) {
         Intent intent = new Intent(this, EditActivity.class);

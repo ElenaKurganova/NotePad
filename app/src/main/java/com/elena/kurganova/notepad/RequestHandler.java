@@ -1,7 +1,8 @@
 package com.elena.kurganova.notepad;
 
 /**
- * Created by Elena on 28-Jan-18.
+ * @author Elena Kurganova
+ * @version 1.0
  */
 
 import org.json.JSONException;
@@ -18,7 +19,12 @@ import java.util.HashMap;
 
 class RequestHandler {
 
-    //Method to send http GET Request
+    /**
+     * Method to send http GET Request
+     *
+     * @param requestURL
+     * @return
+     */
     public String sendGetRequest(String requestURL) {
         StringBuilder sb = new StringBuilder();
         try {
@@ -34,7 +40,13 @@ class RequestHandler {
         return sb.toString();
     }
 
-    //Method to send http GET Request detailed
+    /**
+     * Method to send http GET Request detailed
+     *
+     * @param requestURL
+     * @param id
+     * @return
+     */
     public String sendGetRequestParam(String requestURL, String id) {
         StringBuilder sb = new StringBuilder();
         try {
@@ -50,9 +62,16 @@ class RequestHandler {
         return sb.toString();
     }
 
-    //Method to send http PUT Request
-    //Method is taking three arguments: the URL to send the request
-    //a HashMap with name value pairs containing the data to be send with the request and note id
+    /**
+     * Method to send http PUT Request
+     *
+     * @param requestURL
+     * @param putDataParams
+     * @param id
+     * @return
+     * @throws IOException
+     * @throws JSONException
+     */
     public String sendPutRequest(String requestURL, HashMap<String, String> putDataParams, String id) throws IOException, JSONException {
         URL url = new URL(requestURL + id);
         HttpURLConnection httpCon = (HttpURLConnection) url.openConnection();
@@ -67,6 +86,11 @@ class RequestHandler {
         return (String.valueOf(getPutDataString(putDataParams)));
     }
 
+    /**
+     * @param params
+     * @return
+     * @throws JSONException
+     */
     private String getPutDataString(HashMap<String, String> params) throws JSONException {
         String json;
         JSONObject jsonObject = new JSONObject();
@@ -76,7 +100,14 @@ class RequestHandler {
         return json;
     }
 
-    //Method to send http DELETE Request
+    /**
+     * Method to send http DELETE Request
+     *
+     * @param requestURL
+     * @param id
+     * @return
+     * @throws Exception
+     */
     public String sendDeleteRequest(String requestURL, String id) throws Exception {
         URL url = new URL(requestURL + id);
         HttpURLConnection httpCon = (HttpURLConnection) url.openConnection();
@@ -88,9 +119,15 @@ class RequestHandler {
         return ("Response code: " + String.valueOf(code));
     }
 
-    //Method to send http POST Request
-    //Method is taking two arguments: the URL of the script to send the request
-    //and HashMap with name value pairs containing the data to be send with the request
+    /**
+     * Method to send http POST Request
+     *
+     * @param requestURL
+     * @param postDataParams
+     * @return
+     * @throws IOException
+     * @throws JSONException
+     */
     public String sendPostRequest(String requestURL,
                                   HashMap<String, String> postDataParams) throws IOException, JSONException {
         URL url = new URL(requestURL);
@@ -106,6 +143,11 @@ class RequestHandler {
         return (String.valueOf(getPutDataString(postDataParams)));
     }
 
+    /**
+     * @param params
+     * @return
+     * @throws JSONException
+     */
     private String getPostDataString(HashMap<String, String> params) throws JSONException {
         String json;
         JSONObject jsonObject = new JSONObject();

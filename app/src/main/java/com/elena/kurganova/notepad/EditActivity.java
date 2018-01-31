@@ -1,5 +1,10 @@
 package com.elena.kurganova.notepad;
 
+/**
+ * @author Elena Kurganova
+ * @version 1.0
+ */
+
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -42,6 +47,9 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
         getNote();
     }
 
+    /**
+     * Method to get a note
+     */
     private void getNote() {
         //AsyncTask class enables proper use of the UI thread
         class GetNote extends AsyncTask<Void, Void, String> {
@@ -70,6 +78,10 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
         gn.execute();
     }
 
+    /**
+     * Method to display a note
+     * @param json
+     */
     private void showNote(String json) {
         try {
             JSONObject jsonObject = new JSONObject(json);
@@ -85,7 +97,10 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    //Edit note method
+    /**
+     * Method to edit note
+     */
+
     private void updateNote() {
         final String title = editTextName.getText().toString().trim();
         final String description = editTextDescription.getText().toString().trim();
@@ -128,7 +143,9 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
         un.execute();
     }
 
-    //Delete note method
+    /**
+     * Method to delete note
+     */
     private void deleteNote() {
         class DeleteNote extends AsyncTask<Void, Void, String> {
             ProgressDialog loading;
